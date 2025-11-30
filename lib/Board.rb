@@ -18,6 +18,7 @@ class Board
   end
 
   def print_board
+    puts "\n"
     game_board.each_with_index do |col, col_idx|
       col.each_with_index do |cell, cell_idx|
         if cell_idx == 1
