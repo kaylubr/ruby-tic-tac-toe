@@ -7,16 +7,6 @@ class Board
     @game_board = []
   end
 
-  def create_board
-    3.times do
-      row = []
-      3.times do
-        row << Cell.new(' ')
-      end
-      game_board << row
-    end
-  end
-
   def print_board
     puts "\n"
     game_board.each_with_index do |col, col_idx|
@@ -31,6 +21,18 @@ class Board
     end
     puts "\n"
   end
+
+  def create_board
+    3.times do
+      row = []
+      3.times do
+        row << Cell.new(' ')
+      end
+      game_board << row
+    end
+    print_board
+  end
+
 
   def valid?(row, col)
     range = (0..2)

@@ -1,11 +1,11 @@
 require_relative 'Board'
 require_relative 'Player'
 
-class GameController 
-  attr_reader :board
-
+class GameController
   def initialize
     @board = Board.new
+    @player_one = nil
+    @player_two = nil
   end
 
   def ask_name(text)
@@ -17,20 +17,15 @@ class GameController
   end
 
   def start
+    puts '=== WELCOME TO TIC TAC TOE ==='
+    player_one = Player.create_player(1, 'X')
+    player_two2 = Player.create_player(2, 'O')
+
+    current_player = player_one
+
     board.create_board
 
-    puts '=== WELCOME TO TIC TAC TOE ==='
-    p1_name = ask_name("\033[1mPlayer 1 Username: ")
-    p2_name = ask_name('Player 2 Username: ')
-
-    p1 = Player.new(p1_name, 'X')
-    p2 = Player.new(p2_name, '0')
-
-    current_player = p1
-
     loop do
-      board.print_board
-
       puts "\n#{current_player.name}'s turn"
       print 'What row (0-2): '
       row = gets.chomp
@@ -39,19 +34,25 @@ class GameController
 
       valid = board.play_board(current_player.mark, row, column)
 
+      board.print_board
+      
       if board.draw?
-        board.print_board
         puts "\nDRAW!"
         break
       end
 
       if board.winner?
-        board.print_board
         puts "\n#{current_player.name} wins the game."
         break
       end
 
-      current_player = current_player == p1 ? p2 : p1 if valid
+      current_player = current_player == player_one ? player_two2 : player_one if valid
     end
   end
+
+  private 
+
+    attr_accessor :player_one, :player_two
+    attr_reader :board
+
 end
