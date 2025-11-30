@@ -17,6 +17,10 @@ class Board
     end
   end
 
+  def play_board(mark, row, col)
+    game_board[row.to_i][col.to_i].mark = mark
+  end
+
   def print_board
     game_board.each_with_index do |col, col_idx|
       col.each_with_index do |cell, cell_idx|

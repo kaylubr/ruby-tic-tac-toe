@@ -3,13 +3,14 @@ require_relative 'Player'
 
 class GameController 
   attr_accessor :winner
+  attr_reader :board
 
   def initialize
     @winner = nil
+    @board = Board.new
   end
 
   def start
-    board = Board.new
     board.create_board
     
     p1_name = ask_name('Player 1 Username: ')
@@ -17,6 +18,21 @@ class GameController
 
     p1 = Player.new(p1_name, 'X')
     p2 = Player.new(p2_name, '0')
+
+    current_player = p1
+
+    while winner == nil
+      board.print_board
+      
+      puts "#{current_player.name}'s turn"
+      print 'What row (0-2): '
+      row = gets.chomp
+      print 'What column? (0-2): '
+      column = gets.chomp
+
+      board.play_board(current_player.mark, row, column)
+      current_player = current_player == p1 ? p2 : p1
+    end
   end
 
   def ask_name(text)
