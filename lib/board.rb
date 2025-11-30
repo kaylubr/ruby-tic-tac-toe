@@ -9,15 +9,9 @@ class Board
 
   def print_board
     puts "\n"
-    game_board.each_with_index do |col, col_idx|
-      col.each_with_index do |cell, cell_idx|
-        if cell_idx == 1
-          print "| #{cell.mark} |"
-        else
-          print " #{cell.mark} "
-        end
-      end
-      puts "\n---+---+---" unless col_idx == 2
+    game_board.each_with_index do |row, i|
+      puts " #{row.map(&:mark).join(' | ')} "
+      puts "---+---+---" unless i == 2
     end
     puts "\n"
   end
