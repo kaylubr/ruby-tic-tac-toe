@@ -56,7 +56,7 @@ class Board
     false
   end
 
-  def winner?()
+  def winner?
     win_combinations = [
       [0, 1, 2], 
       [3, 4, 5], 
