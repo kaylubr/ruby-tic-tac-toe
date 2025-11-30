@@ -1,6 +1,6 @@
-require_relative 'lib/Board'
+require_relative 'lib/GameController'
 
-board = Board.new
-board.create_board
+GAMECONTROLLER = GameController.new
 
-board.print_board
+GAMECONTROLLER.start
+
