@@ -13,7 +13,7 @@ class GameController
   def start
     board.create_board
     
-    p1_name = ask_name('Player 1 Username: ')
+    p1_name = ask_name("\033[1mPlayer 1 Username: ")
     p2_name = ask_name('Player 2 Username: ')
 
     p1 = Player.new(p1_name, 'X')
