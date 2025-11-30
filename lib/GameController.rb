@@ -36,13 +36,11 @@ class GameController
 
       board.print_board
       
-      if board.draw?
-        puts "\nDRAW!"
-        break
-      end
-
       if board.winner?
         puts "\n#{current_player.name} wins the game."
+        break
+      elsif board.draw?
+        puts "\nDRAW!"
         break
       end
 
