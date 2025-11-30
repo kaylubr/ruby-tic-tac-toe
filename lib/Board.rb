@@ -17,10 +17,6 @@ class Board
     end
   end
 
-  def play_board(mark, row, col)
-    game_board[row.to_i][col.to_i].mark = mark
-  end
-
   def print_board
     game_board.each_with_index do |col, col_idx|
       col.each_with_index do |cell, cell_idx|
@@ -33,5 +29,19 @@ class Board
       puts "\n---+---+---" unless col_idx == 2
     end
     puts "\n"
+  end
+
+  def valid?(row, col)
+    game_board[row.to_i][col.to_i].mark.eql?(' ')
+  end
+
+  def play_board(mark, row, col)
+    if valid?(row, col)
+      game_board[row.to_i][col.to_i].mark = mark
+      return true
+    end
+
+    puts 'Invalid move'
+    return false
   end
 end
