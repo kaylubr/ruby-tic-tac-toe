@@ -1,4 +1,4 @@
-require_relative 'Cell'
+require_relative 'cell'
 
 class Board
   attr_accessor :game_board
