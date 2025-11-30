@@ -33,6 +33,9 @@ class Board
   end
 
   def valid?(row, col)
+    range = (0..2)
+    return false if row.length > 1 && col.length > 1
+    return false unless range.include?(row.to_i) && range.include?(col.to_i)
     game_board[row.to_i][col.to_i].mark.eql?(' ')
   end
 
@@ -42,7 +45,7 @@ class Board
       return true
     end
 
-    puts 'Invalid move'
+    puts "\n⚠ INVALID MOVE ⚠"
     return false
   end
 end

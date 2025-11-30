@@ -31,10 +31,7 @@ class GameController
       column = gets.chomp
 
       valid = board.play_board(current_player.mark, row, column)
-
-      if valid
-        current_player = current_player == p1 ? p2 : p1
-      end
+      current_player = current_player == p1 ? p2 : p1 if valid
     end
   end
 
