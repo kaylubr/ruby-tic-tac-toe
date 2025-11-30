@@ -39,6 +39,12 @@ class GameController
 
       valid = board.play_board(current_player.mark, row, column)
 
+      if board.draw?
+        board.print_board
+        puts "\nDRAW!"
+        break
+      end
+
       if board.winner?
         board.print_board
         puts "\n#{current_player.name} wins the game."

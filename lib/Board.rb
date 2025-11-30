@@ -39,6 +39,12 @@ class Board
     game_board[row.to_i][col.to_i].mark.eql?(' ')
   end
 
+  def draw?
+    board = game_board.flatten
+    board.each { |cell| return false if cell.mark.eql?(' ')}
+    true
+  end
+
   def play_board(mark, row, col)
     if valid?(row, col)
       game_board[row.to_i][col.to_i].mark = mark
