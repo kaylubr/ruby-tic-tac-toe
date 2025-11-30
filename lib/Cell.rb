@@ -1,11 +1,11 @@
 class Cell
-  attr_accessor :value
+  attr_accessor :mark
 
-  def initialize(value)
-    @value = value
+  def initialize(mark)
+    @mark = mark
   end
 
   def to_s
-    value
+    self.mark
   end
 end
