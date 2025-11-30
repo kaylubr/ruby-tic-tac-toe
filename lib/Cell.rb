@@ -6,6 +6,6 @@ class Cell
   end
 
   def to_s
-    self.mark
+    mark
   end
 end
