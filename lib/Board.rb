@@ -44,8 +44,7 @@ class Board
       game_board[row.to_i][col.to_i].mark = mark
       return true
     end
-
     puts "\n⚠ INVALID MOVE ⚠"
-    return false
+    false
   end
 end
